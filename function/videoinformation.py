@@ -1,6 +1,14 @@
+#作用：
+# 	1、用openCV读入视频，并获取视频的帧率、总帧数以及画面大小信息，并实时显示视频的时间、帧索引、帧率及总帧数信息
+#   2、输出含有上述信息的新视频
+
+
+
+
+
 import cv2
 
-video = cv2.VideoCapture("test.mp4")
+video = cv2.VideoCapture("test.mp4")# 在此可更改输入视频名字，需要注意视频需存放在代码所在目录下
 fps = video.get(cv2.CAP_PROP_FPS)
 frameCount = video.get(cv2.CAP_PROP_FRAME_COUNT)
 size = (int(video.get(cv2.CAP_PROP_FRAME_WIDTH)), int(video.get(cv2.CAP_PROP_FRAME_HEIGHT)))
@@ -14,7 +22,7 @@ while success :
 	cv2.putText(frame, 'frame: ' + str(index), (0, 400), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,255), 5)
 	cv2.putText(frame, 'time: ' + str(round(index / 24.0, 2)) + "s", (0,500), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,255), 5)
 	cv2.imshow("new video", frame)
-	cv2.waitKey(int(1000 / fps))
+	cv2.waitKey(int(1000 / fps))# 如果觉得输出前的显示过程太漫长，可以更改这里的每帧显示后的暂停时间
 	videoWriter.write(frame)
 	success, frame = video.read()
 	index += 1
