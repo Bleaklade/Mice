@@ -1,3 +1,13 @@
+'''
+作用：
+    1、用openCV内置函数直接进行背景消除
+
+输入：视频文件
+
+输出：格式为mp4,基本参数与原视频相同，背景被消除的视频
+
+'''
+
 import numpy as np
 import cv2
 
@@ -20,7 +30,7 @@ while(ret):
     ret, frame = cap.read()
     fgmask = fgbg.apply(frame)
 
-    if index/frameCount >=0.01:
+    if index/frameCount >=0.1:
         index=0
         print('|***|')
     

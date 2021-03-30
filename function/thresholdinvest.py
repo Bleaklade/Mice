@@ -1,3 +1,14 @@
+"""
+作用：
+    1、进一步了解普通二值化的使用代码
+    2、读入视频第一帧，然后让阈值从0-255进行二值化处理，将每张图像作为一帧合成新视频
+
+输入：视频文件
+
+输出：不同阈值下第一帧二值化图像的合成视频，格式avi，帧率10，图像大小与原视频相同
+
+"""
+
 import cv2
 
 #output is the threshold image of the first frame of video for all the threshold from 0 to 255
